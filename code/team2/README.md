@@ -6,7 +6,7 @@
 |---|---|---|---|
 | `benachrichtigung` | Benachrichtigungs-Worker (Freigabeanfrage, Lieferbestätigung, Ergebnis) | T2-11 | Saifudin |
 | `prozesslogik` | Worker für Vorgang prüfen, Reichweite, Vorschlag, Ersatzoption, Bestand fortschreiben | T2-07, T2-08, T2-10 | Saifudin (übernommen) |
-| `persistenz` *(geplant)* | Datenmodell, REST der App-Simulation, bedingter Start | T2-03 bis T2-05, T2-12 | Erion |
+| `persistenz` | Datenmodell (JPA/Panache, MySQL), App-Simulation `POST /bestand` | T2-03, T2-04 (T2-05, T2-12 folgen) | Erion |
 | `integration`, `eventing` *(geplant)* | JMS, Camel, Lieferant-Simulation, Esper | T2-14 bis T2-18 | Amar |
 
 ```bash

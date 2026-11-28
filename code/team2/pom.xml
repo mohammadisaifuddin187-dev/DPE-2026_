@@ -19,5 +19,6 @@
   <modules>
     <module>benachrichtigung</module>
     <module>prozesslogik</module>
+    <module>persistenz</module>
   </modules>
 </project>
