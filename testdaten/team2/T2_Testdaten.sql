@@ -112,7 +112,7 @@ INSERT INTO t2_versorgungsprofil VALUES
 
 -- Ausgangsbestand für den Happy Path (TF01): 30 Stück < Mindestbestand 40
 INSERT INTO t2_bestand (pflegehaushalt_id, produkt_id, menge, zeitpunkt, herkunft) VALUES
-  ('PH-0001', 'TP-M', 30, '2026-12-01 08:00:00', 'Testdaten');
+  ('PH-0001', 'TP-M', 30, DATE_SUB(NOW(), INTERVAL 1 DAY), 'Testdaten');
 
 -- ---------------------------------------------------------------------
 -- Teil 3: Testfälle mit erwartetem Ende
