@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Team 2 Materialversorgung - Integration (Story T2-14, später T2-15 bis T2-17)
+  Team 2 Materialversorgung - Integration (Story T2-14, T2-15, später T2-16 und T2-17)
   Verantwortlich: Amar
   Worker t2-bestellung-senden: legt die Bestellung über die REST-API von ActiveMQ in die Queue Team2_Bestellung_Lieferant.
+  Camel-Route (T2-15): liest die Queue, verteilt per Content-Based Router, wandelt JSON <-> XML.
   Aufbau wie prozesslogik/pom.xml, aber ohne Datenbank.
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -31,6 +32,14 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
+      <!-- Camel Quarkus passend zur Quarkus-Version (Camel 4.8) -->
+      <dependency>
+        <groupId>io.quarkus.platform</groupId>
+        <artifactId>quarkus-camel-bom</artifactId>
+        <version>${quarkus.platform.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
@@ -52,6 +61,24 @@
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-jaxb</artifactId>
+    </dependency>
+    <!-- T2-15: Camel wie Deck 09, Folie 44 (jms/activemq, file, jsonpath). camel-xmljson aus der Folie gibt es ab
+         Camel 3 nicht mehr, XML <-> JSON macht deshalb Jackson (jackson-dataformat-xml) -->
+    <dependency>
+      <groupId>org.apache.camel.quarkus</groupId>
+      <artifactId>camel-quarkus-activemq</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel.quarkus</groupId>
+      <artifactId>camel-quarkus-file</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel.quarkus</groupId>
+      <artifactId>camel-quarkus-jsonpath</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.dataformat</groupId>
+      <artifactId>jackson-dataformat-xml</artifactId>
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
