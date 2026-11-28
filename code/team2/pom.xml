@@ -5,7 +5,8 @@
   Module:
     benachrichtigung  - Benachrichtigungs-Worker (T2-11)
     prozesslogik      - Worker der Prozesslogik (T2-07, T2-08, T2-10)
-  Geplant (noch leer): persistenz (Erion, T2-03), integration und eventing (Amar, T2-14 bis T2-18)
+    integration       - Bestellung in die ActiveMQ-Queue (Amar, T2-14)
+  Geplant (noch leer): persistenz (Erion, T2-03), eventing (Amar, T2-18)
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -19,5 +20,6 @@
   <modules>
     <module>benachrichtigung</module>
     <module>prozesslogik</module>
+    <module>integration</module>
   </modules>
 </project>

@@ -24,6 +24,7 @@ import base64, glob, json, os, sys, time, uuid, urllib.error, urllib.request, xm
 ECHT = {
     # "t2-vorgang-pruefen",                   # Beispiel: Worker Prozesslogik (Saifudin, #7)
     # "Lieferant_Bestellantwort_Team2",       # Beispiel: Camel leitet die Lieferantenantwort weiter (Amar, #15/#16)
+    "t2-bestellung-senden",                   # Bestellung in die Queue (Amar, #14)
 }
 
 R = os.environ.get("CIB_URL", "http://localhost:8080/engine-rest")
